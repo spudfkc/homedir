@@ -1,7 +1,7 @@
 # Home directory repo
 
 # ignore everything and whitelist the things we want to keep
-*
+#*
 
 # include .bashrc
 !.bashrc
