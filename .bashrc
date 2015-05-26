@@ -50,12 +50,12 @@ esac
 
 #if [ -n "$force_color_prompt" ]; then
 #    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-#	# We have color support; assume it's compliant with Ecma-48
-#	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-#	# a case would tend to support setf rather than setaf.)
-#	color_prompt=yes
+#   # We have color support; assume it's compliant with Ecma-48
+#   # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+#   # a case would tend to support setf rather than setaf.)
+#   color_prompt=yes
 #    else
-#	color_prompt=
+#   color_prompt=
 #    fi
 #fi
 color_prompt=yes
@@ -68,7 +68,7 @@ fi
 unset color_prompt force_color_prompt
 
 # new custom PS1 prompt
-export PS1=$IBlack${USER}$Yellow:$IBlack$Time12h$Color_Off'$(git branch &>/dev/null;\
+export PS1=$IRed${USER}$Yellow:$IRed$Time12h$Color_Off'$(git branch &>/dev/null;\
 if [ $? -eq 0 ]; then \
 
 #  echo "$(echo `git status` | grep "Not currently on any branch" > /dev/null 2>&1; \
@@ -141,13 +141,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export GRADLE_HOME="/home/ncc/gradle/1.10/"
-export GROOVY_HOME="/usr/share/groovy"
-export IDEA_HOME="/home/ncc/idea/"
-export IDEA_JDK="/home/ncc/Downloads/ojdk/jdk1.7.0_45/"
-export JAVA_HOME="/usr/lib/jvm/java-7-oracle/"
-export GO_HOME="/home/ncc/Downloads/golang/go/"
-
+export GO_HOME=/usr/local/go
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$GO_HOME/bin
 
@@ -183,4 +177,18 @@ findString() {
   done
 }
 
+source ~/bin/bash-powerline.sh
 
+alias wow='git status'
+alias such=git
+alias very=git
+
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+fi
+
+alias git-st-pull='git subtree pull --squash -P salt/_formulae/salt-states salt-states master'
+alias git-st-push='git subtree push --prefix=salt/_formulae/salt-states salt-states master'
+
+export GOPATH=$HOME/dev/go-projects
+export PATH="$PATH:$GOPATH/bin"
