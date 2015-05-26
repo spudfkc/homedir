@@ -1,12 +1,7 @@
-execute pathogen#infect()
-
-try
-    colorscheme Monokai
-catch
-    echo "Monokai colorscheme not found"
-endtry
-
 syntax on
+syntax enable
+set background=dark
+
 set nocompatible
 set number
 set t_Co=256
@@ -14,12 +9,13 @@ set t_Co=256
 set expandtab
 set tabstop=4
 set shiftwidth=4
-set textwidth=0 wrapmargin=0
+set textwidth=120
 set smarttab
 set smartindent
 set ruler
 "set relativenumber
 "set ttyfast
+set backspace=indent,eol,start
 set autoread
 set more
 set cursorline!
@@ -52,4 +48,16 @@ set statusline+=%2*\ %f\ %m\ %r%*                   " Show filename/path
 set statusline+=%3*%=%*                             " Set right-side status info after this line
 set statusline+=%4*%l/%L:%v%*                       " Set <line number>/<totallines>:<column>
 set statusline+=%5*\ %*                             " Set ending space
+
+try
+    execute pathogen#infect()
+catch
+    echo "Pathogen not found!"
+endtry
+
+try
+    colorscheme solarized
+catch
+    echo "Monokai colorscheme not found!"
+endtry
 
