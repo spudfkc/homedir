@@ -1,0 +1,16 @@
+[core]
+    editor = vim
+    pager =
+[color]
+    ui = auto
+[alias]
+    co = checkout
+    br = branch
+    ci = commit
+    st = status
+    dif = !git diff --color=always | less -r
+    p = !git push origin HEAD
+    wow = status
+    very = git
+    such = git
+
