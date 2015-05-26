@@ -1,0 +1,22 @@
+{
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Base16 Color Schemes",
+		"Git",
+		"GitGutter",
+		"GoSublime",
+		"Jinja2",
+		"Package Control",
+		"SideBarEnhancements",
+		"SublimeLinter",
+		"SublimeLinter-contrib-golint",
+		"SublimeLinter-pylint",
+		"Theme - Flatland",
+		"Theme - Spacegray",
+		"Vagrant",
+		"Vintageous"
+	]
+}

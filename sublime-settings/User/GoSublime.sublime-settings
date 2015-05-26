@@ -1,0 +1,6 @@
+{
+    "fmt_tab_width": 4,
+    "env": {
+        "GOPATH": "/Users/ncc1/dev/go-projects"
+    }
+}
