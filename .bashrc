@@ -113,7 +113,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-alias ll='ls -alF'
+alias ll='ls -alFG'
 alias la='ls -A'
 alias l='ls -CF'
 
@@ -142,12 +142,12 @@ if ! shopt -oq posix; then
 fi
 
 export GO_HOME=/usr/local/go
-export PATH=$PATH:$HOME/bin
+export PATH=$PATH:$HOME/bin:/usr/local/sbin:/usr/local/bin
 export PATH=$PATH:$GO_HOME/bin
 
 killProcs() {
     echo " ${1}"
-    ps aux | grep $1 | grep -v grep | awk '{print $2}' | xargs kill -9
+    ps aux | grep -i $1 | grep -v grep | awk '{print $2}' | xargs kill -9
 }
 
 findString() {

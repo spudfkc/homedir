@@ -20,6 +20,9 @@ set autoread
 set more
 set cursorline!
 
+" Make vim-airline appear all the time
+set laststatus=2
+
 " figure out what these do
 filetype on
 filetype plugin on
@@ -56,7 +59,8 @@ catch
 endtry
 
 try
-    colorscheme solarized
+    "colorscheme solarized
+    colorscheme Monokai
 catch
     echo "Monokai colorscheme not found!"
 endtry

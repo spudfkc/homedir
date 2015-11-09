@@ -70,6 +70,21 @@ __powerline() {
         esac
     fi
 
+    __virtualenv() {
+        # Copied from Python virtualenv's activate.sh script.
+        # https://github.com/pypa/virtualenv/blob/a9b4e673559a5beb24bac1a8fb81446dd84ec6ed/virtualenv_embedded/activate.sh#L62
+        # License: MIT
+        if [ "x$VIRTUAL_ENV" != "x" ]; then
+            if [ "`basename \"$VIRTUAL_ENV\"`" == "__" ]; then
+                # special case for Aspen magic directories
+                # see http://www.zetadev.com/software/aspen/
+                printf "[`basename \`dirname \"$VIRTUAL_ENV\"\``]"
+            else
+                printf "(`basename \"$VIRTUAL_ENV\"`)"
+            fi
+        fi
+    }
+
     __git_info() {
         [ -x "$(which git)" ] || return    # git not found
 
@@ -108,6 +123,7 @@ __powerline() {
         EXIT_CHAR=" "
         PS1=""
         PS1+="$BG_EXIT$FG_BASE3$FG_EXIT$EXIT_CHAR$RESET"
+        PS1+="$BG_BASE0$FG_BASE3$(__virtualenv)$RESET"
         PS1+="$BG_BLACK$FG_BASE3 \w $RESET"
 
         GIT_INFO=$(__git_info)
